@@ -1,21 +1,21 @@
+.tooltip-wrapper[data-popper-placement^='top'] .popper-arrow {
+  bottom: -5px !important;
+}
+
+.tooltip-wrapper[data-popper-placement^='bottom'] .popper-arrow {
+  top: -5px !important;
+}
+
+.tooltip-wrapper[data-popper-placement^='right'] .popper-arrow {
+  left: -5px !important;
+}
+
+.tooltip-wrapper[data-popper-placement^='left'] .popper-arrow {
+  right: -5px !important;
+}
+
 .popper-arrow::before {
   position: absolute;
   transform: rotate(45deg);
   border-radius: 2px;
-}
-
-.popper-arrow.top {
-  bottom: -5px !important;
-}
-
-.popper-arrow.right {
-  left: -5px !important;
-}
-
-.popper-arrow.bottom {
-  top: -5px !important;
-}
-
-.popper-arrow.left {
-  right: -5px !important;
 }

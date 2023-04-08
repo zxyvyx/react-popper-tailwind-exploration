@@ -29,6 +29,7 @@ const Tooltip: FC<Props> = ({ children, text, placement, className }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const { styles, attributes } = usePopper(popperReference, popperElement, {
+    placement,
     modifiers: [
       { name: 'arrow', options: { element: arrowElement } },
       { name: 'offset', options: { offset: [0, 10] } },
@@ -61,12 +62,12 @@ const Tooltip: FC<Props> = ({ children, text, placement, className }) => {
           style={styles.popper}
           className={`shadow-sm ${isVisible ? `opacity-100` : `opacity-0`} ${
             isVisible ? 'visible' : 'invisible'
-          }  rounded-lg shadow-sm transition-all duration-300`}
+          }  tooltip-wrapper rounded-lg shadow-sm transition-all duration-300`}
           ref={setPopperElement}
           {...attributes.popper}
         >
           <div
-            className={`min-w-64 tooltip relative z-20 grid h-[30px] w-auto place-items-center rounded bg-gray-900 px-3 text-sm font-medium text-white  shadow-sm dark:bg-gray-700 ${className}`}
+            className={`tooltip relative z-20 grid h-fit w-auto place-items-center rounded bg-gray-900 px-3 py-1 text-sm font-medium text-white shadow-sm dark:bg-gray-700 ${className}`}
           >
             <span>{text}</span>
           </div>
@@ -75,7 +76,7 @@ const Tooltip: FC<Props> = ({ children, text, placement, className }) => {
             data-popper-arrow
             className={`popper-arrow z-10 ${
               placement ?? 'auto'
-            } h-5 w-5 before:absolute before:inset-0  before:bg-gray-700`}
+            } h-5 w-5 before:absolute before:inset-0 before:bg-gray-700`}
             style={styles.arrow}
           />
         </div>,

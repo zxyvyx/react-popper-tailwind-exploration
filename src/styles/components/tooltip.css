@@ -1,0 +1,21 @@
+.popper-arrow::before {
+  position: absolute;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.popper-arrow.top {
+  bottom: -5px !important;
+}
+
+.popper-arrow.right {
+  left: -5px !important;
+}
+
+.popper-arrow.bottom {
+  top: -5px !important;
+}
+
+.popper-arrow.left {
+  right: -5px !important;
+}

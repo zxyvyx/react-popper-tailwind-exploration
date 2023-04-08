@@ -69,7 +69,7 @@ const Tooltip: FC<Props> = ({ children, text, placement, className }) => {
           <div
             className={`tooltip relative z-20 grid h-fit w-auto place-items-center rounded bg-gray-900 px-3 py-1 text-sm font-medium text-white shadow-sm dark:bg-gray-700 ${className}`}
           >
-            <span>{text}</span>
+            <span className='whitespace-pre-wrap'>{text}</span>
           </div>
           <div
             ref={setArrowElement}

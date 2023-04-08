@@ -1,4 +1,5 @@
-import Popover from './components/popover';
+import MoreDropdown from './components/dropdown/MoreDropdown';
+import NotificationPanel from './components/popover/NotificationPanel';
 import Tooltip from './components/tooltip';
 
 const App = () => {
@@ -7,7 +8,7 @@ const App = () => {
       <div className='flex h-screen items-center justify-center'>
         Scroll this page to simulate
       </div>
-      <div className='flex flex-row gap-4'>
+      <div className='flex flex-col gap-4'>
         <Tooltip placement='left' text='Your description goes here'>
           <div className='mx-auto w-fit rounded border p-3'>Any Content</div>
         </Tooltip>
@@ -31,7 +32,10 @@ const App = () => {
           </button>
         </Tooltip>
         <div className='flex w-full justify-center'>
-          <Popover placement='top-end' />
+          <NotificationPanel />
+        </div>
+        <div className='flex w-full justify-center'>
+          <MoreDropdown />
         </div>
       </div>
       <div className='h-screen'>Other content</div>

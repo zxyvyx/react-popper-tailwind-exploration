@@ -32,7 +32,7 @@ const Tooltip: FC<Props> = ({ children, text, placement, className }) => {
     placement,
     modifiers: [
       { name: 'arrow', options: { element: arrowElement } },
-      { name: 'offset', options: { offset: [0, 10] } },
+      { name: 'offset', options: { offset: [0, 8] } },
     ],
   });
 
@@ -45,7 +45,6 @@ const Tooltip: FC<Props> = ({ children, text, placement, className }) => {
   const childrenWithPopperProps = cloneElement(children as ReactElement, {
     ref: setPopperReference,
     onBlur: () => setIsVisible(() => false),
-    onClick: () => setIsVisible(() => !isVisible),
     onFocus: () => setIsVisible(() => true),
     onMouseEnter: () => setIsVisible(() => true),
     onMouseLeave: () => setIsVisible(() => false),
@@ -60,10 +59,12 @@ const Tooltip: FC<Props> = ({ children, text, placement, className }) => {
           role='tooltip'
           id='tooltip-message'
           style={styles.popper}
-          className={`shadow-sm ${isVisible ? `opacity-100` : `opacity-0`} ${
-            isVisible ? 'visible' : 'invisible'
-          }  tooltip-wrapper rounded-lg shadow-sm transition-all duration-300`}
+          className={`${
+            isVisible ? `visible opacity-100` : `invisible opacity-0`
+          } tooltip-wrapper rounded-lg shadow-sm transition-opacity duration-300`}
           ref={setPopperElement}
+          onMouseEnter={() => setIsVisible(() => true)}
+          onMouseLeave={() => setIsVisible(() => false)}
           {...attributes.popper}
         >
           <div
